@@ -68,6 +68,7 @@ class GitopsConnector:
 
                 # Handling an exception as it crashes the draining thread
                 try:
+                    logging.debug(f'Checking Commit Status: {commit_status}')
                     self._git_repository.post_commit_status(commit_status)
 
                     for subscriber in self._raw_subscribers:
